@@ -18,13 +18,13 @@ router.get("/", async (req, res) => {
 });
 
 //adding word and its dictionary to mongo db from oxford dictionaries API
-router.post("/:word", async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     //Oxford Dictionary API Fetch
     const options = {
       host: "od-api.oxforddictionaries.com",
       port: 443,
-      path: `/api/v2/entries/en-us/${req.params.word}?fields=definitions`,
+      path: `/api/v2/entries/en-us/${req.body.word}?fields=definitions`,
       method: "GET",
       headers: {
         app_id: APP_ID,
@@ -47,7 +47,7 @@ router.post("/:word", async (req, res) => {
         });
 
         await dictionary.create({
-          word: req.params.word,
+          word: req.body.word,
           items: data,
         });
         res.status(200).json({
