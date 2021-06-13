@@ -5,6 +5,9 @@
   "main": "index.js",
   "author": "Tharun Kumar",
   "license": "MIT",
+  "scripts":{
+  "start":"node index.js"
+  }
   "dependencies": {
     "bootstrap": "^5.0.1",
     "cors": "^2.8.5",
