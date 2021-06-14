@@ -60,4 +60,23 @@ router.post("/", async (req, res) => {
   }
 });
 
+router.get("/:id", async (req, res) => {
+  try {
+    let data = await dictionary.findById(req.params.id);
+    if (data) {
+      res.status(200).json({
+        data,
+      });
+    } else {
+      res.status(404).json({
+        message: "No data Found",
+      });
+    }
+  } catch (err) {
+    console.log(err);
+    res.sendStatus(500);
+  }
+});
+
+
 module.exports = router;
