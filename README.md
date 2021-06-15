@@ -16,9 +16,13 @@ https://vocabulary-app-be.herokuapp.com/dictionary/ - will get the information a
 Below are deployed links and GitHub repos of the application,
 
 `Deployment Links:`
+
 Front End - https://tharun-coder.github.io/vocabulary-app-fe/
+
 Back End - https://vocabulary-app-be.herokuapp.com/dictionary
 
 `GitHub Repository Links:`
+
 Front End - https://github.com/Tharun-coder/vocabulary-app-fe
+
 Back End - https://github.com/Tharun-coder/vocabulary-app-be
