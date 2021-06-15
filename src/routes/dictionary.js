@@ -40,23 +40,30 @@ router.post("/", async (req, res) => {
       resp.on("end", async () => {
         let parsed = JSON.parse(body);
 
-        let data = parsed.results[0].lexicalEntries.map((e) => {
-          let category = e.lexicalCategory.id;
-          let definitions = e.entries[0].senses.map((e) => e.definitions[0]);
-          return { category, definitions };
-        });
+         if (!parsed.error) {
+          let data = parsed.results[0].lexicalEntries.map((e) => {
+            let category = e.lexicalCategory.id;
+            let definitions = e.entries[0].senses.map((e) => e.definitions[0]);
+            return { category, definitions };
+          });
 
-        await dictionary.create({
-          word: req.body.word,
-          items: data,
-        });
-        res.status(200).json({
-          data,
-        });
+          await dictionary.create({
+            word: req.body.word,
+            items: data,
+          });
+          res.status(200).json({
+            data,
+          });
+        } else {
+          res.status(404).json({
+            message: "Please enter a valid word",
+          });
+        }
       });
     });
   } catch (err) {
     console.log(err);
+    res.sendStatus(500);
   }
 });
 
