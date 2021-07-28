@@ -1,6 +1,6 @@
 # vocabulary-app-be
 
-It is an backend application using Node JS which fetches the information of the requested word from Oxford Dictionaries API and stores it in the Database for future purpose to fetch and display it in frontend.
+It is a backend application using Node JS which fetches the information of the requested word from Oxford Dictionaries API and stores it in the Database for future purpose to fetch and display it in frontend.
 
 
 #End Points
